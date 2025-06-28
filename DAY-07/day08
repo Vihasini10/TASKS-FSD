@@ -1,0 +1,110 @@
+mysql> use studentdb;
+Database changed
+mysql> create table students(
+    -> id int primary key,
+    -> name varchar(50),
+    -> age int);
+Query OK, 0 rows affected (0.32 sec)
+
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.13 sec)
+
+mysql> insert into students(id,name,age)values(1,'Vihas;,19);
+    '> insert into students(id,name,age)values(1,'Vihas',19);
+    '> exit;
+    '> Terminal close -- exit!
+mysql> use studentdb;
+Database changed
+mysql> desc student;
+ERROR 1146 (42S02): Table 'studentdb.student' doesn't exist
+mysql> desc students;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| id    | int         | NO   | PRI | NULL    |       |
+| name  | varchar(50) | YES  |     | NULL    |       |
+| age   | int         | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.02 sec)
+
+mysql> insert into students(id,name,age)values(1,'vihasini',20);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into students(id,name,age)values(2,'angel',19);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into students(id,name,age)values(3,'suba',21);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from students;
++----+----------+------+
+| id | name     | age  |
++----+----------+------+
+|  1 | vihasini |   20 |
+|  2 | angel    |   19 |
+|  3 | suba     |   21 |
++----+----------+------+
+3 rows in set (0.01 sec)
+
+mysql> create database inventorydb;
+Query OK, 1 row affected (0.04 sec)
+
+mysql> use inventorydb;
+Database changed
+mysql> create table products(
+    -> id int primary key,
+    -> name varchar(100),
+    -> price double);
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> desc products;
++-------+--------------+------+-----+---------+-------+
+| Field | Type         | Null | Key | Default | Extra |
++-------+--------------+------+-----+---------+-------+
+| id    | int          | NO   | PRI | NULL    |       |
+| name  | varchar(100) | YES  |     | NULL    |       |
+| price | double       | YES  |     | NULL    |       |
++-------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> INSERT INTO products (id, name, price) VALUES (101, 'Wireless Mouse', 799);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO products (id, name, price) VALUES (102, 'USB Keyboard', 599);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INTO products (id, name, price) VALUES (103, 'Laptop Stand', 1299);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'INTO products (id, name, price) VALUES (103, 'Laptop Stand', 1299)' at line 1
+mysql> INSERT INTO products (id, name, price) VALUES (103, 'Laptop Stand', 1299);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> 
+mysql> INSERT INTO products (id, name, price) VALUES (104, 'HDMI Cable', 349);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO products (id, name, price) VALUES (105, 'Bluetooth Speaker', 2299.00);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from products;
++-----+-------------------+-------+
+| id  | name              | price |
++-----+-------------------+-------+
+|  21 | vihas             |  2000 |
+| 101 | Wireless Mouse    |   799 |
+| 102 | USB Keyboard      |   599 |
+| 103 | Laptop Stand      |  1299 |
+| 104 | HDMI Cable        |   349 |
+| 105 | Bluetooth Speaker |  2299 |
++-----+-------------------+-------+
+6 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.01 sec)
+
